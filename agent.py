@@ -16,14 +16,13 @@ from google.adk.workflow import node
 from google.genai import types
 from pydantic import Field
 
-from google.adk.models import Gemma3Ollama
-
 load_dotenv()
 
 _ENABLE_LOCAL_MODEL=False
 
 if _ENABLE_LOCAL_MODEL:
     # ollama local Gemma 3 4b model for development
+    from google.adk.models import Gemma3Ollama
     _MODEL=Gemma3Ollama(model="ollama/gemma3:4b")
 else:
     # cloud based Google Gemini 3.7 Flash model
